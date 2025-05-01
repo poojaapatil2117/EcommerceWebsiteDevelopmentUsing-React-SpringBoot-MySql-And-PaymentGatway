@@ -9,7 +9,7 @@ import {
 
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
-import { navigation } from "./navigation/Navigation";
+import { NavigationData } from "./NavigationData";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -84,7 +84,7 @@ export default function Navigation() {
                 <Tab.Group as="div" className="mt-2">
                   <div className="border-b border-gray-200">
                     <Tab.List className="-mb-px flex space-x-8 px-4">
-                      {navigation.categories.map((category) => (
+                      {NavigationData.categories.map((category) => (
                         <Tab
                           key={category.name}
                           className={({ selected }) =>
@@ -102,7 +102,7 @@ export default function Navigation() {
                     </Tab.List>
                   </div>
                   <Tab.Panels as={Fragment}>
-                    {navigation.categories.map((category) => (
+                    {NavigationData.categories.map((category) => (
                       <Tab.Panel
                         key={category.name}
                         className="space-y-10 px-4 pb-8 pt-10"
@@ -166,7 +166,7 @@ export default function Navigation() {
                 </Tab.Group>
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  {navigation.pages.map((page) => (
+                  {NavigationData.pages.map((page) => (
                     <div key={page.name} className="flow-root">
                       <a
                         href={page.href}
@@ -238,7 +238,7 @@ export default function Navigation() {
               {/* Flyout menus */}
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch z-10">
                 <div className="flex h-full space-x-8">
-                  {navigation.categories.map((category) => (
+                  {NavigationData.categories.map((category) => (
                     <Popover key={category.name} className="flex">
                       {({ open, close }) => (
                         <>
@@ -355,7 +355,7 @@ export default function Navigation() {
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {NavigationData.pages.map((page) => (
                     <a
                       key={page.name}
                       href={page.href}
@@ -404,11 +404,11 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        <MenuItem>
+                        {/* <MenuItem>
                           {auth.user?.role === "ROLE_ADMIN"
                             ? "Admin Dashboard"
                             : "My Orders"}
-                        </MenuItem>
+                        </MenuItem> */}
                         <MenuItem>Logout</MenuItem>
                       </Menu>
                     </div>
@@ -424,10 +424,7 @@ export default function Navigation() {
 
                 {/* Search */}
                 <div className="flex items-center lg:ml-6">
-                  <p
-                    onClick={() => navigate("/products/search")}
-                    className="p-2 text-gray-400 hover:text-gray-500"
-                  >
+                  <p className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
 
                     <MagnifyingGlassIcon
@@ -455,7 +452,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      <AuthModal handleClose={handleClose} open={openAuthModal} />
+      {/* <AuthModal handleClose={handleClose} open={openAuthModal} /> */}
     </div>
   );
 }
