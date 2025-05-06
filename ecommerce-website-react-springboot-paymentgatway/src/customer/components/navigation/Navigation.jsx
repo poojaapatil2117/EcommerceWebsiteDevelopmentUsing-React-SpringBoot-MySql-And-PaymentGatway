@@ -10,6 +10,7 @@ import {
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { NavigationData } from "./NavigationData";
+import { useNavigate } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -17,6 +18,7 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
@@ -37,7 +39,7 @@ export default function Navigation() {
   };
 
   const handleCategoryClick = (category, section, item, close) => {
-    // navigate(`/${category.id}/${section.id}/${item.id}`);
+    navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
 
@@ -386,15 +388,7 @@ export default function Navigation() {
                       >
                         R
                       </Avatar>
-                      {/* <Button
-                        id="basic-button"
-                        aria-controls={open ? "basic-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                        onClick={handleUserClick}
-                      >
-                        Dashboard
-                      </Button> */}
+
                       <Menu
                         id="basic-menu"
                         anchorEl={anchorEl}
@@ -404,11 +398,10 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        {/* <MenuItem>
-                          {auth.user?.role === "ROLE_ADMIN"
-                            ? "Admin Dashboard"
-                            : "My Orders"}
-                        </MenuItem> */}
+                        <MenuItem>Profile</MenuItem>
+                        <MenuItem onClick={() => navigate("/account/order")}>
+                          My Orders
+                        </MenuItem>
                         <MenuItem>Logout</MenuItem>
                       </Menu>
                     </div>
