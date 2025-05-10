@@ -5,7 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* justify-content: center; */
+  /* background-color: rgb(244, 240, 240); */
+  /* background-color: #15151e; */
+  min-height: 100%;
 }
 
 code {
@@ -13,7 +15,8 @@ code {
     monospace;
 }
 
+
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
-
+@tailwind utilities;
