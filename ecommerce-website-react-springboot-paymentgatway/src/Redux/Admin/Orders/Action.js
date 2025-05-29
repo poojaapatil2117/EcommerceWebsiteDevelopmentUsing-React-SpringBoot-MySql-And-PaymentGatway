@@ -83,19 +83,19 @@ export const deliveredOrder = (orderId) => async (dispatch) => {
   }
 };
 
-export const cancelOrder = (orderId) => async (dispatch) => {
-  dispatch(canceledOrderRequest());
+// export const cancelOrder = (orderId) => async (dispatch) => {
+//   dispatch(canceledOrderRequest());
 
-  try {
-    const response = await api.put(
-      `/api/admin/orders/${orderId}/cancel`
-    );
-    const data = response.data;
-    dispatch(canceledOrderSuccess(data));
-  } catch (error) {
-    dispatch(canceledOrderFailure(error.message));
-  }
-};
+//   try {
+//     const response = await api.put(
+//       `/api/admin/orders/${orderId}/cancel`
+//     );
+//     const data = response.data;
+//     dispatch(canceledOrderSuccess(data));
+//   } catch (error) {
+//     dispatch(canceledOrderFailure(error.message));
+//   }
+// };
 
 // Async action creator for deleting an order
 export const deleteOrder = (orderId) => {

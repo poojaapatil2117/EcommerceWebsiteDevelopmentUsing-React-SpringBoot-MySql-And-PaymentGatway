@@ -44,9 +44,10 @@ const salesData = [
 
 const renderStats = () => {
   return salesData.map((item, index) => (
-    <Grid item xs={12} sm={3} key={index}>
-      <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
-        <Avatar
+    // <div className='w-full'></div>
+    <Grid item xs={12} sm={3} key={index} sx={{width:"200px"}}>
+      <Box sx={{ display: 'flex', alignItems: 'center' }} className="ml-5">
+        <Avatar 
           variant='rounded'
           sx={{
             mr: 3,
@@ -59,7 +60,7 @@ const renderStats = () => {
         >
           {item.icon}
         </Avatar>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column' }} >
           <Typography variant='caption'>{item.title}</Typography>
           <Typography variant='h6'>{item.stats}</Typography>
         </Box>
@@ -70,7 +71,7 @@ const renderStats = () => {
 
 const MonthlyOverview = () => {
   return (
-    <Card>
+    <Card sx={{width:"100%", height:"100%"}}>
       <CardHeader
         title='Monthly Overview'
         action={

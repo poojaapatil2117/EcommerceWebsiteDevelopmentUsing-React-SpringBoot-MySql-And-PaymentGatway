@@ -2,12 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navigation from "./customer/Components/Navbar/Navigation";
 import CustomerRoutes from "./Routers/CustomerRoutes";
-import AdminRoutes from "./Routers/AdminRoutes";
 import NotFound from "./Pages/Notfound";
 import AdminPannel from "./Admin/AdminPannel";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUser } from "./Redux/Auth/Action";
+import AdminRoutes from "./Routers/AdminRoutes";
 // import Routers from './Routers/Routers';
 
 function App() {
@@ -23,8 +23,10 @@ function App() {
     <div className="">
       <Routes>
         <Route path="/*" element={<CustomerRoutes />} />
-       {auth.user?.role==="ROLE_ADMIN" && <Route path="/admin/*" element={<AdminPannel />} />}
+       <Route path="/admin/*" element={<AdminRoutes />} />
       </Routes>
+      {/* <AdminPannel/> */}
+      
     </div>
   );
 }
